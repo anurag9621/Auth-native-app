@@ -7,7 +7,13 @@ import {
 } from "react-native";
 import React from "react";
 
-const CustomButton = ({ onPress, text, type="PRIMARY" }) => {
+const CustomButton = ({
+  onPress,
+  text,
+  type = "PRIMARY",
+  bgColor,
+  fgColor,
+}) => {
   const { height } = useWindowDimensions();
   return (
     <Pressable
@@ -16,9 +22,18 @@ const CustomButton = ({ onPress, text, type="PRIMARY" }) => {
         styles.container,
         { height: height * 0.056 },
         styles[`container_${type}`],
+        bgColor ? { backgroundColor: bgColor } : {},
       ]}
     >
-      <Text style={[styles.text, styles[`text_${type}`]]}>{text}</Text>
+      <Text
+        style={[
+          styles.text,
+          styles[`text_${type}`],
+          fgColor ? { color: fgColor } : {},
+        ]}
+      >
+        {text}
+      </Text>
     </Pressable>
   );
 };
@@ -30,7 +45,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderRadius: 5,
     maxHeight: 100,
-    marginTop: 10,
+    marginTop: 15,
   },
   container_PRIMARY: {
     backgroundColor: "black",
