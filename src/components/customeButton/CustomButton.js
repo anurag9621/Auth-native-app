@@ -50,8 +50,12 @@ const styles = StyleSheet.create({
   container_PRIMARY: {
     backgroundColor: "black",
   },
+  container_SECONDRY: {
+    borderColor: "black",
+    borderWidth:2,
+  },
   container_TERTIARY: {
-    backgroundColor: "white",
+    backgroundColor: "none",
   },
   text: {
     fontWeight: "bold",
